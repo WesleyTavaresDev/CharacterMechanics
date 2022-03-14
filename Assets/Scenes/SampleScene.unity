@@ -455,6 +455,7 @@ GameObject:
   - component: {fileID: 540849956}
   - component: {fileID: 540849958}
   - component: {fileID: 540849959}
+  - component: {fileID: 540849960}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -564,6 +565,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.62}
   m_Size: {x: 0.5, y: 1.2}
   m_Direction: 0
+--- !u!114 &540849960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540849955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f6b64093000f3f40a06aeeb30121f6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalSpeed: 100
 --- !u!1 &1078628420
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,7 +861,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 1
-      m_TileSpriteIndex: 2
+      m_TileSpriteIndex: 7
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1037,7 +1051,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 1
+      m_TileSpriteIndex: 6
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1124,12 +1138,10 @@ Tilemap:
   m_TileSpriteArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: -1766325920876340200, guid: 5556ef069d981fe459a67f977f4604c0,
-      type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 8272725524738471605, guid: 5556ef069d981fe459a67f977f4604c0,
-      type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 8
     m_Data: {fileID: -4142551662827736079, guid: 5556ef069d981fe459a67f977f4604c0,
       type: 3}
@@ -1138,10 +1150,12 @@ Tilemap:
       type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -1766325920876340200, guid: 5556ef069d981fe459a67f977f4604c0,
+      type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 8272725524738471605, guid: 5556ef069d981fe459a67f977f4604c0,
+      type: 3}
   - m_RefCount: 21
     m_Data: {fileID: 2448541337373580990, guid: 5556ef069d981fe459a67f977f4604c0,
       type: 3}
