@@ -612,7 +612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 380
-  groundCheckDistance: 1
+  groundCheckDistance: 0.62
 --- !u!1 &1078628420
 GameObject:
   m_ObjectHideFlags: 0
