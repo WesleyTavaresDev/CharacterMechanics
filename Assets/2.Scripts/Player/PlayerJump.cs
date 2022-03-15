@@ -39,8 +39,6 @@ public class PlayerJump : MonoBehaviour
     void FlexibeJump()
     {
         if(Input.GetButtonUp("Jump") &&  rb.velocity.y > 0)
-        {
             rb.velocity = new Vector3(rb.velocity.x, Time.deltaTime * 0.50f);
-        }
     }
 }
