@@ -30,7 +30,5 @@ public class PlayerAttack : MonoBehaviour
 
         activeMovements?.Invoke();
         anim.SetBool("Attacking", false);
-    }
-
-   
+    } 
 }
