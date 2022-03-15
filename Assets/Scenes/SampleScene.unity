@@ -612,7 +612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c203a8906098b040aa1d71687921167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 280
+  jumpForce: 320
 --- !u!114 &540849963
 MonoBehaviour:
   m_ObjectHideFlags: 0

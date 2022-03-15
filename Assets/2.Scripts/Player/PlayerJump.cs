@@ -22,6 +22,7 @@ public class PlayerJump : MonoBehaviour
     void FixedUpdate()
     {
         Jump();
+        FlexibeJump();
         onGround.Invoke();
     }
 
@@ -30,11 +31,16 @@ public class PlayerJump : MonoBehaviour
     void Jump()
     {
         if(Input.GetButtonDown("Jump"))
-        {
             if((onGround.Invoke()))
-                rb.velocity = new Vector3(rb.velocity.x, Time.deltaTime * jumpForce);
-        }
-
+                rb.velocity = new Vector3(rb.velocity.x, Time.fixedDeltaTime * jumpForce);
         anim.SetBool("Jumping", !onGround.Invoke());
+    }
+
+    void FlexibeJump()
+    {
+        if(Input.GetButtonUp("Jump") &&  rb.velocity.y > 0)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, Time.deltaTime * 0.50f);
+        }
     }
 }
