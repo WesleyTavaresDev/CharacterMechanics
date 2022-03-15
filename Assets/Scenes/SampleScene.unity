@@ -625,7 +625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7699bfe7107d0984884ef8ba12fc16fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundCheckDistance: 0
+  groundCheckDistance: 0.62
 --- !u!1 &1078628420
 GameObject:
   m_ObjectHideFlags: 0

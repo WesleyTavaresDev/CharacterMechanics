@@ -1,21 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Player.Ground.Check;
 
 [RequireComponent(typeof(GroundChecker))]
 public class PlayerJump : MonoBehaviour
 {
+    public delegate bool OnJump();
+    public static event OnJump jump;
+
     [SerializeField] private float jumpForce;
     bool isJumping;
 
-    GroundChecker groundChecker;
     Rigidbody2D rb;
     Animator anim;
     
     void Awake()
     {
-        groundChecker = GetComponent<GroundChecker>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
@@ -23,7 +23,7 @@ public class PlayerJump : MonoBehaviour
     void FixedUpdate()
     {
         Jump();
-        groundChecker.GroundCheck();
+        jump.Invoke();
     }
 
     void Update() => anim.SetFloat("JumpAxis", rb.velocity.y);
@@ -32,9 +32,10 @@ public class PlayerJump : MonoBehaviour
     {
         if(Input.GetButtonDown("Jump"))
         {
-            if(groundChecker.GroundCheck())
+            if((jump.Invoke()))
                 rb.velocity = new Vector3(rb.velocity.x, Time.deltaTime * jumpForce);
         }
-        anim.SetBool("Jumping", !groundChecker.GroundCheck());
+
+        anim.SetBool("Jumping", !jump.Invoke());
     }
 }
