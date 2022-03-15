@@ -15,8 +15,8 @@ public class GroundChecker : MonoBehaviour
         return ray.collider != null;
     }
     
-    void OnEnable() => PlayerJump.jump += GroundCheck;
-    void OnDisable() => PlayerJump.jump -= GroundCheck;
+    void OnEnable() => PlayerJump.onGround += GroundCheck;
+    void OnDisable() => PlayerJump.onGround -= GroundCheck;
 
     void Awake() => rb = GetComponent<Rigidbody2D>();
     void Update() => GroundCheck();

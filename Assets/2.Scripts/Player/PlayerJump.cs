@@ -5,11 +5,10 @@ using UnityEngine;
 [RequireComponent(typeof(GroundChecker))]
 public class PlayerJump : MonoBehaviour
 {
-    public delegate bool OnJump();
-    public static event OnJump jump;
+    public delegate bool OnGround();
+    public static event OnGround onGround;
 
     [SerializeField] private float jumpForce;
-    bool isJumping;
 
     Rigidbody2D rb;
     Animator anim;
@@ -23,7 +22,7 @@ public class PlayerJump : MonoBehaviour
     void FixedUpdate()
     {
         Jump();
-        jump.Invoke();
+        onGround.Invoke();
     }
 
     void Update() => anim.SetFloat("JumpAxis", rb.velocity.y);
@@ -32,10 +31,10 @@ public class PlayerJump : MonoBehaviour
     {
         if(Input.GetButtonDown("Jump"))
         {
-            if((jump.Invoke()))
+            if((onGround.Invoke()))
                 rb.velocity = new Vector3(rb.velocity.x, Time.deltaTime * jumpForce);
         }
 
-        anim.SetBool("Jumping", !jump.Invoke());
+        anim.SetBool("Jumping", !onGround.Invoke());
     }
 }
