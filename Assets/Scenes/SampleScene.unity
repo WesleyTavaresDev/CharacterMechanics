@@ -611,7 +611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c203a8906098b040aa1d71687921167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 380
+  jumpForce: 280
   groundCheckDistance: 0.62
 --- !u!1 &1078628420
 GameObject:

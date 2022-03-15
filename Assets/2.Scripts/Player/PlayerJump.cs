@@ -10,6 +10,7 @@ public class PlayerJump : MonoBehaviour
     
     Rigidbody2D rb;
     Animator anim;
+    
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -21,17 +22,17 @@ public class PlayerJump : MonoBehaviour
         Jump();
         GroundCheck();
     }
-    
-    void Update()
-    {
-        anim.SetFloat("JumpAxis", rb.velocity.y);
-    }
+
+    void Update() => anim.SetFloat("JumpAxis", rb.velocity.y);
+
     void Jump()
     {
         if(Input.GetButtonDown("Jump"))
         {
-            if(!isJumping) 
+            if(!isJumping)
+            {
                 rb.velocity = new Vector3(rb.velocity.x, Time.deltaTime * jumpForce);
+            }
         }
 
         anim.SetBool("Jumping", isJumping);
