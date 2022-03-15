@@ -1,18 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Player.Ground.Check;
 
+[RequireComponent(typeof(GroundChecker))]
 public class PlayerJump : MonoBehaviour
 {
     [SerializeField] private float jumpForce;
-    [SerializeField] private float groundCheckDistance;
     bool isJumping;
-    
+
+    GroundChecker groundChecker;
     Rigidbody2D rb;
     Animator anim;
     
     void Awake()
     {
+        groundChecker = GetComponent<GroundChecker>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
@@ -20,7 +23,7 @@ public class PlayerJump : MonoBehaviour
     void FixedUpdate()
     {
         Jump();
-        GroundCheck();
+        groundChecker.GroundCheck();
     }
 
     void Update() => anim.SetFloat("JumpAxis", rb.velocity.y);
@@ -29,23 +32,9 @@ public class PlayerJump : MonoBehaviour
     {
         if(Input.GetButtonDown("Jump"))
         {
-            if(!isJumping)
-            {
+            if(groundChecker.GroundCheck())
                 rb.velocity = new Vector3(rb.velocity.x, Time.deltaTime * jumpForce);
-            }
         }
-
-        anim.SetBool("Jumping", isJumping);
-    }
-
-    void GroundCheck()
-    {
-        RaycastHit2D ray = Physics2D.Raycast(rb.worldCenterOfMass, Vector2.down, groundCheckDistance, 1 << 8);
-        Debug.DrawRay(rb.worldCenterOfMass, Vector2.down * groundCheckDistance, Color.red);
-
-        if(ray.collider != null)
-            isJumping = false;
-        else
-            isJumping = true;
+        anim.SetBool("Jumping", !groundChecker.GroundCheck());
     }
 }
