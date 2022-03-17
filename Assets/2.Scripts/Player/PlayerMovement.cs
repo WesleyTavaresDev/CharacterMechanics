@@ -2,7 +2,8 @@
 
 [RequireComponent(typeof(PlayerFlip))]
 public class PlayerMovement : MonoBehaviour
-{
+{ 
+    [Header("Movement Attributes")]
     [SerializeField] private float horizontalSpeed;
     bool canMove = true;
 

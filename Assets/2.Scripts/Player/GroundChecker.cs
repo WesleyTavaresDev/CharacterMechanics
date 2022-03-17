@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class GroundChecker : MonoBehaviour
 {     
-    [SerializeField] private float groundCheckDistance;
+    [Tooltip("Ground Check  Length")]
+    [SerializeField] private float groundCheckDistance = 0.62f;
 
     Rigidbody2D rb;
 
@@ -16,7 +17,7 @@ public class GroundChecker : MonoBehaviour
     }
     
     void OnEnable() => PlayerJump.onGround += GroundCheck;
-    void OnDisable() => PlayerJump.onGround -= GroundCheck;
+    void OnDisable() => PlayerJump.onGround  -= GroundCheck;
 
     void Awake() => rb = GetComponent<Rigidbody2D>();
     void Update() => GroundCheck();

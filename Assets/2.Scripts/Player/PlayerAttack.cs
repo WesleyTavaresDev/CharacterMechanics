@@ -8,7 +8,8 @@ public class PlayerAttack : MonoBehaviour
     public static event StopMovements stopMovements;
     public static event StopMovements activeMovements;
 
-   [SerializeField] AnimationClip attackClip;
+    [Tooltip("Put your attack animation clip")]
+    [SerializeField] AnimationClip attackClip;
    
     private const float ANIMATION_OFFSET = 0.2f;
     private Animator anim;
