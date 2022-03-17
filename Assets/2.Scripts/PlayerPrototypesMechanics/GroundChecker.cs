@@ -4,7 +4,7 @@ using UnityEngine;
 public class GroundChecker : MonoBehaviour
 {     
     [Tooltip("Ground Check  Length")]
-    [SerializeField] private float groundCheckDistance = 0.62f;
+    [Range(-10, 10)][SerializeField] private float groundCheckDistance = 0.62f;
 
     Rigidbody2D rb;
 

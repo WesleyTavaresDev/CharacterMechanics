@@ -640,6 +640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df95f480f18d95746b2480ac8f88a455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moreAttacks: 0
   attackClip: {fileID: 7400000, guid: 0ab17c36545a9044aa22bf3144b744b1, type: 2}
 --- !u!114 &540849965
 MonoBehaviour:

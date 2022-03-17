@@ -10,7 +10,7 @@ public class PlayerAttack : MonoBehaviour
 
     [Tooltip("Put your attack animation clip")]
     [SerializeField] AnimationClip attackClip;
-   
+
     private const float ANIMATION_OFFSET = 0.2f;
     private Animator anim;
 
