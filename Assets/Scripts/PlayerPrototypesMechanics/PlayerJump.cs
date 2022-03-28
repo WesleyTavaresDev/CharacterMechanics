@@ -29,7 +29,7 @@ public class PlayerJump : MonoBehaviour
     void Jump()
     {
         if(Input.GetButtonDown("Jump"))
-            if((onGround.Invoke()))
+            if(onGround.Invoke())
                 rb.velocity = new Vector3(rb.velocity.x, Time.fixedDeltaTime * jumpForce);
         anim.SetBool("Jumping", !onGround.Invoke());
     }

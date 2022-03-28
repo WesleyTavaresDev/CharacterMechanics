@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public delegate void StopMovements();
+    public delegate void MovementActions();
 
-    public static event StopMovements stopMovements;
-    public static event StopMovements activeMovements;
+    public static event MovementActions disableMovement;
+    public static event MovementActions enableMovements;
 
     [Tooltip("Put your attack animation clip")]
     [SerializeField] AnimationClip attackClip;
@@ -24,12 +24,12 @@ public class PlayerAttack : MonoBehaviour
 
     private IEnumerator Attack()
     {
-        stopMovements?.Invoke();
+        disableMovement?.Invoke();
         anim.SetBool("Attacking", true);
         
         yield return new WaitForSeconds(attackClip.length + ANIMATION_OFFSET);
 
-        activeMovements?.Invoke();
+        enableMovements?.Invoke();
         anim.SetBool("Attacking", false);
     } 
 }
