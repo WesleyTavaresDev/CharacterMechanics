@@ -23,7 +23,7 @@ public class LevelManager : MonoBehaviour
         AsyncOperation async = SceneManager.LoadSceneAsync(buildIndex);
         async.allowSceneActivation = false;
 
-        DOTweenModuleUI.DOFillAmount(screenFill, 1, .8f);
+        FadeIn();
         yield return new WaitForSeconds(.81f);
 
         async.allowSceneActivation = true;
@@ -32,6 +32,11 @@ public class LevelManager : MonoBehaviour
     void FadeOut() 
     {
         DOTweenModuleUI.DOFade(screenFade, 0, 0.7f);
+    }
+
+    void FadeIn()
+    {
+        DOTweenModuleUI.DOFillAmount(screenFill, 1, .8f);
     }
 
     void OnTriggerEnter2D(Collider2D other) 
