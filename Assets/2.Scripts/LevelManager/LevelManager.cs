@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -19,30 +18,21 @@ public class LevelManager : MonoBehaviour
 
     IEnumerator ChangeLevel() 
     {
-     
         AsyncOperation async = SceneManager.LoadSceneAsync(buildIndex);
         async.allowSceneActivation = false;
 
         FadeIn();
-        yield return new WaitForSeconds(.81f);
 
+        yield return new WaitForSeconds(.81f);
         async.allowSceneActivation = true;
     }
 
-    void FadeOut() 
-    {
-        DOTweenModuleUI.DOFade(screenFade, 0, 0.7f);
-    }
-
-    void FadeIn()
-    {
-        DOTweenModuleUI.DOFillAmount(screenFill, 1, .8f);
-    }
+    void FadeOut() => DOTweenModuleUI.DOFade(screenFade, 0, 0.7f);
+    void FadeIn() => DOTweenModuleUI.DOFillAmount(screenFill, 1, .8f);
 
     void OnTriggerEnter2D(Collider2D other) 
     {
         if(other.gameObject.CompareTag("Player"))
             StartCoroutine(ChangeLevel());
-        
     }
 }
